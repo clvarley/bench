@@ -66,24 +66,10 @@ Class Result
     public function averageDuration() : Duration
     {
         $total = $this->totalDuration();
+
+        $value = $total->getValue();
         $precision = $total->getPrecision();
 
-        switch ( $precision ) {
-            case Duration::PRECISION_MICROSECONDS:
-                $value = $total->getMicroseconds();
-                break;
-
-            case Duration::PRECISION_MILLISECONDS:
-                $value = $total->getMilliseconds();
-                break;
-
-            case Duration::PRECISION_SECONDS:
-                $value = $total->getSeconds();
-                break;
-        }
-
-        $count = count( $this->results );
-
-        return new Duration( $value / $count, $precision );
+        return new Duration( $value / count( $this->results ), $precision );
     }
 }
