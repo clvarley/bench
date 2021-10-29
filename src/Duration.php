@@ -94,6 +94,20 @@ Class Duration
     }
 
     /**
+     * Compares two durations and returns the one with the higher precision
+     *
+     * If both durations have the same precision, the one passed as `$value2`
+     * will be returned.
+     *
+     * @psalm-pure
+     * @return self Most precise
+     */
+    public static function mostPrecise( self $value1, self $value2 ) : self
+    {
+        return ( $value1->precision > $value2->precision ? $value1 : $value2 );
+    }
+
+    /**
      * Adds two durations together
      *
      * Tries to preserve accuracy by using the highest possible precision
@@ -107,10 +121,7 @@ Class Duration
     public static function add( self $value1, self $value2 ) : self
     {
         // Choose the highest precision of the two
-        $precision = ( $value1->precision > $value2->precision
-            ? $value1->precision
-            : $value2->precision
-        );
+        $precision = self::mostPrecise( $value1, $value2 )->getPrecision();
 
         $value1 = $value1->value * $value1->multiplier( $precision );
         $value2 = $value2->value * $value2->multiplier( $precision );

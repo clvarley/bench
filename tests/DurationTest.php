@@ -65,7 +65,7 @@ Class DurationTest Extends TestCase
 
         $result = Duration::add( $val1, $val2 );
 
-        // Should not drop precision
+        // Should not change precision
         self::assertSame( Duration::PRECISION_SECONDS, $result->getPrecision() );
         self::assertSame( 0.875, $result->getSeconds() );
     }
@@ -77,8 +77,19 @@ Class DurationTest Extends TestCase
 
         $result = Duration::add( $val1, $val2 );
 
-        // Drop to most accurate
+        // Should drop to most accurate
         self::assertSame( Duration::PRECISION_MICROSECONDS, $result->getPrecision() );
         self::assertSame( 0.0875, $result->getSeconds() );
+    }
+
+    public function testCanTellWhichDurationIsMosePrecise() : void
+    {
+        $val1 = new Duration( 0, Duration::PRECISION_SECONDS );
+        $val2 = new Duration( 0, Duration::PRECISION_MICROSECONDS );
+
+        $result = Duration::mostPrecise( $val1, $val2 );
+
+        self::assertSame( $val2, $result );
+        self::assertGreaterThan( $val1->getPrecision(), $result->getPrecision() );
     }
 }
