@@ -21,7 +21,7 @@ Class MicrotimeTest Extends TestCase
     {
         self::expectException( LogicException::class );
 
-        $this->timer->end();
+        $this->timer->stop();
     }
 
     public function testThrowsWhenNotFinished() : void
