@@ -5,8 +5,9 @@ namespace Clvarley\Bench\Tests;
 use PHPUnit\Framework\TestCase;
 use Clvarley\Bench\TestItem;
 
-Class TestItemTest Extends TestCase
+Class TestItemTests Extends TestCase
 {
+    /** @var TestItem $item */
     private $item;
 
     protected function setUp() : void
