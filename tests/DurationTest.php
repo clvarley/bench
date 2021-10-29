@@ -29,26 +29,26 @@ Class DurationTest Extends TestCase
     {
         $duration = new Duration( 0.45, Duration::PRECISION_SECONDS );
 
-        self::assertSame( 0.45,   $duration->getSeconds() );
-        self::assertSame( 450,    $duration->getMilliseconds() );
-        self::assertSame( 450000, $duration->getMicroseconds() );
+        self::assertSame( 0.45,     $duration->getSeconds() );
+        self::assertSame( 450.0,    $duration->getMilliseconds() );
+        self::assertSame( 450000.0, $duration->getMicroseconds() );
     }
 
     public function testCanCreateDurationAsMilliseconds() : void
     {
         $duration = new Duration( 450, Duration::PRECISION_MILLISECONDS );
 
-        self::assertSame( 0.45,   $duration->getSeconds() );
-        self::assertSame( 450,    $duration->getMilliseconds() );
-        self::assertSame( 450000, $duration->getMicroseconds() );
+        self::assertSame( 0.45,     $duration->getSeconds() );
+        self::assertSame( 450.0,    $duration->getMilliseconds() );
+        self::assertSame( 450000.0, $duration->getMicroseconds() );
     }
 
     public function testCanCreateDurationAsMicroseconds() : void
     {
         $duration = new Duration( 450000, Duration::PRECISION_MICROSECONDS );
 
-        self::assertSame( 0.45,   $duration->getSeconds() );
-        self::assertSame( 450,    $duration->getMilliseconds() );
-        self::assertSame( 450000, $duration->getMicroseconds() );
+        self::assertSame( 0.45,     $duration->getSeconds() );
+        self::assertSame( 450.0,    $duration->getMilliseconds() );
+        self::assertSame( 450000.0, $duration->getMicroseconds() );
     }
 }

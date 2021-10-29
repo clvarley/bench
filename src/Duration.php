@@ -54,7 +54,7 @@ Class Duration
      */
     public function getSeconds() : float
     {
-        return $this->value * $this->precision;
+        return $this->value * $this->multiplier( self::PRECISION_SECONDS );
     }
 
     /**
@@ -78,8 +78,9 @@ Class Duration
      *
      * @psalm-param self::PRECISION_* $target
      * @param int $target Target precision
+     * @return int|float
      */
-    public function multiplier( int $target ) : int
+    public function multiplier( int $target ) // : int|float
     {
         return $target / $this->precision;
     }
