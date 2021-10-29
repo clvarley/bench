@@ -80,8 +80,27 @@ Class Duration
      * @param int $target Target precision
      * @return int|float
      */
-    public function multiplier( int $target ) // : int|float
+    private function multiplier( int $target ) // : int|float
     {
         return $target / $this->precision;
+    }
+
+    /**
+     * Adds two durations together, attempting to preserve precision
+     *
+     * @return self New duration
+     */
+    public static function add( self $value1, self $value2 ) : self
+    {
+        // Choose the highest precision of the two
+        $precision = ( $value1->precision >= $value2->precision
+            ? $value1->precision
+            : $value2->precision
+        );
+
+        $value1 = $value1->value * $value1->multiplier( $precision );
+        $value2 = $value2->value * $value2->multiplier( $precision );
+
+        return new self( $value1 + $value2, $precision );
     }
 }
