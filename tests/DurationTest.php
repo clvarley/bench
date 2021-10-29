@@ -24,6 +24,13 @@ Class DurationTest Extends TestCase
         self::assertSame( $precision, $duration->getPrecision() );
     }
 
+    public function testCanGetDurationValue() : void
+    {
+        $duration = new Duration( 0.125, Duration::PRECISION_SECONDS );
+
+        self::assertSame( 0.125, $duration->getValue() );
+    }
+
     public function testCanCreateDurationAsSeconds() : void
     {
         $duration = new Duration( 0.45, Duration::PRECISION_SECONDS );
