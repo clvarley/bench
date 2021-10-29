@@ -15,12 +15,12 @@ Class Microtime Implements TimerInterface
 {
 
     /**
-     * @var float $t_start
+     * @var float|null $t_start
      */
     private $t_start;
 
     /**
-     * @var float $t_end
+     * @var float|null $t_end
      */
     private $t_end;
 
@@ -44,7 +44,7 @@ Class Microtime Implements TimerInterface
 
     public function result() : Duration
     {
-        if ( !isset( $this->t_end ) ) {
+        if ( !isset( $this->t_end, $this->t_start ) ) {
             throw new LogicException(
                 'Cannot call ::result() on a timer without first stopping it'
             );
