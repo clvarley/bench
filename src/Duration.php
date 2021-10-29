@@ -6,7 +6,6 @@ namespace Clvarley\Bench;
  * Stores information about how long a test took to run
  *
  * @psalm-immutable
- * @internal
  */
 Class Duration
 {
@@ -36,6 +35,16 @@ Class Duration
     {
         $this->value = $value;
         $this->precision = $precision;
+    }
+
+    /**
+     * Returns the underlying value of this duration
+     *
+     * @internal
+     */
+    public function getValue() : float
+    {
+        return $this->value;
     }
 
     /**
