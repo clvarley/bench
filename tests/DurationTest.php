@@ -5,7 +5,7 @@ namespace Clvarley\Bench\Tests;
 use PHPUnit\Framework\TestCase;
 use Clvarley\Bench\Duration;
 
-Class DurationTests Extends TestCase
+Class DurationTest Extends TestCase
 {
     public function precisionProvider() : array
     {
