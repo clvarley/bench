@@ -4,6 +4,7 @@ namespace Clvarley\Bench\Timer;
 
 use Clvarley\Bench\TimerInterface;
 use LogicException;
+use Clvarley\Bench\Duration;
 
 use function microtime;
 
@@ -38,7 +39,7 @@ Class Microtime Implements TimerInterface
         $this->t_end = $end;
     }
 
-    public function result() : void
+    public function result() : Duration
     {
         if ( !isset( $this->t_end ) ) {
             throw new LogicException(
@@ -46,6 +47,8 @@ Class Microtime Implements TimerInterface
             );
         }
 
-        // TODO:
+        $value = $this->t_end - $this->t_start;
+
+        return new Duration( $value, Duration::PRECISION_SECONDS );
     }
 }

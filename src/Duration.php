@@ -38,6 +38,15 @@ Class Duration
         $this->precision = $precision;
     }
 
+    /**
+     * Returns the precision of this duration
+     *
+     * @psalm-return self::PRECISION_*
+     */
+    public function getPrecision() : int
+    {
+        return $this->precision;
+    }
 
     /**
      * Returns the duration in seconds

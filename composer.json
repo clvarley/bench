@@ -2,7 +2,7 @@
     "name": "clvarley/bench",
     "type": "library",
     "description": "Trivial PHP benchmarking",
-    "homepage": "https://github.com/clvarley/cache",
+    "homepage": "https://github.com/clvarley/bench",
     "license": "MIT",
     "readme": "README.md",
     "authors": [
