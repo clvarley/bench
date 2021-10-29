@@ -5,6 +5,7 @@ namespace Clvarley\Bench;
 /**
  * Stores information about how long a test took to run
  *
+ * @psalm-immutable
  * @internal
  */
 Class Duration

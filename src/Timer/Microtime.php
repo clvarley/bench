@@ -8,6 +8,9 @@ use Clvarley\Bench\Duration;
 
 use function microtime;
 
+/**
+ * Timer that uses PHPs `microtime` function to calculate duration
+ */
 Class Microtime Implements TimerInterface
 {
 
