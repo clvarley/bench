@@ -11,9 +11,9 @@ namespace Clvarley\Bench;
 Class Duration
 {
 
-    const PRECISION_SECONDS = 1000 ^ 0;
-    const PRECISION_MILLISECONDS = 1000 ^ 1;
-    const PRECISION_MICROSECONDS = 1000 ^ 2;
+    const PRECISION_SECONDS = 1000 ** 0;
+    const PRECISION_MILLISECONDS = 1000 ** 1;
+    const PRECISION_MICROSECONDS = 1000 ** 2;
 
     /**
      * @var float $value
