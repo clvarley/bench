@@ -5,7 +5,7 @@ namespace Clvarley\Bench;
 /**
  * Represents a single repeatable test
  *
- * @internal
+ * @psalm-immutable
  */
 Class TestItem
 {

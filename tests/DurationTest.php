@@ -50,4 +50,28 @@ Class DurationTest Extends TestCase
         self::assertSame( 450.0,    $duration->getMilliseconds() );
         self::assertSame( 450000.0, $duration->getMicroseconds() );
     }
+
+    public function testCanAddTwoDurationsOfSamePrecision() : void
+    {
+        $val1 = new Duration( 0.75,  Duration::PRECISION_SECONDS );
+        $val2 = new Duration( 0.125, Duration::PRECISION_SECONDS );
+
+        $result = Duration::add( $val1, $val2 );
+
+        // Should not drop precision
+        self::assertSame( Duration::PRECISION_SECONDS, $result->getPrecision() );
+        self::assertSame( 0.875, $result->getSeconds() );
+    }
+
+    public function testCanAddTwoDurationsOfDifferingPrecision() : void
+    {
+        $val1 = new Duration( 0.075, Duration::PRECISION_SECONDS );
+        $val2 = new Duration( 12500, Duration::PRECISION_MICROSECONDS );
+
+        $result = Duration::add( $val1, $val2 );
+
+        // Drop to most accurate
+        self::assertSame( Duration::PRECISION_MICROSECONDS, $result->getPrecision() );
+        self::assertSame( 0.0875, $result->getSeconds() );
+    }
 }
