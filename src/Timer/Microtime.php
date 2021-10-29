@@ -29,7 +29,7 @@ Class Microtime Implements TimerInterface
         $this->t_start = microtime( true );
     }
 
-    public function end() : void
+    public function stop() : void
     {
         $end = microtime( true );
 
