@@ -3,6 +3,7 @@
 namespace Clvarley\Bench;
 
 use LogicException;
+use Clvarley\Bench\Duration;
 
 /**
  * Functionality to measure the time taken between two points
@@ -27,6 +28,6 @@ Interface TimerInterface
      *
      * @throws LogicException Thrown if timer hasn't finished
      */
-    public function result() : void;
+    public function result() : Duration;
 
 }
