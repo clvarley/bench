@@ -10,7 +10,6 @@ namespace Clvarley\Bench;
  */
 Class Duration
 {
-
     const PRECISION_SECONDS = 1000 ** 0;
     const PRECISION_MILLISECONDS = 1000 ** 1;
     const PRECISION_MICROSECONDS = 1000 ** 2;
@@ -86,14 +85,20 @@ Class Duration
     }
 
     /**
-     * Adds two durations together, attempting to preserve precision
+     * Adds two durations together
      *
-     * @return self New duration
+     * Tries to preserve accuracy by using the highest possible precision
+     * supported by both operands. Because of floating point errors, adding
+     * durations of differing precisions can sometimes result in some minor
+     * inaccuracies.
+     *
+     * @psalm-pure
+     * @return self Resultant duration
      */
     public static function add( self $value1, self $value2 ) : self
     {
         // Choose the highest precision of the two
-        $precision = ( $value1->precision >= $value2->precision
+        $precision = ( $value1->precision > $value2->precision
             ? $value1->precision
             : $value2->precision
         );
