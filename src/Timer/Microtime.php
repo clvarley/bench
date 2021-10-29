@@ -35,7 +35,7 @@ Class Microtime Implements TimerInterface
 
         if ( !isset( $this->t_start ) ) {
             throw new LogicException(
-                'Cannot call ::end() on timer that has not yet started'
+                'Cannot call ::stop() on timer that has not yet started'
             );
         }
 
@@ -46,7 +46,7 @@ Class Microtime Implements TimerInterface
     {
         if ( !isset( $this->t_end ) ) {
             throw new LogicException(
-                'Cannot call ::result() before a timer has finished'
+                'Cannot call ::result() on a timer without first stopping it'
             );
         }
 

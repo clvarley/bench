@@ -16,7 +16,6 @@ Class DurationTest Extends TestCase
         ];
     }
 
-
     /** @dataProvider precisionProvider */
     public function testCanGetDurationPrecision( int $precision ) : void
     {
