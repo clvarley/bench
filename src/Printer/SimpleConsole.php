@@ -30,7 +30,7 @@ Class SimpleConsole Implements PrinterInterface
         $digits = floor( log10( $count ) ) + 1;
 
         // Build sprintf format
-        $format = "- %0{$digits}d took: %07.3f ms";
+        $format = "- %0{$digits}d took: %07f ms";
 
         foreach ( $results->getResults() as $i => $result ) {
             $this->printf( $format, $i, $result->getMilliseconds() );
@@ -39,10 +39,10 @@ Class SimpleConsole Implements PrinterInterface
         $this->print( '---' );
 
         // Totals
-        $this->printf( 'Total time:   %07.3f ms',
+        $this->printf( 'Total time:   %07f ms',
             $results->totalDuration()->getMilliseconds()
         );
-        $this->printf( 'Average time: %07.3f ms',
+        $this->printf( 'Average time: %07f ms',
             $results->averageDuration()->getMilliseconds()
         );
 
