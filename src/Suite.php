@@ -31,6 +31,7 @@ Class Suite
     /**
      * Create a test suite with your preferred timing and display methods
      *
+     * @psalm-mutation-free
      * @param TimerInterface $timer     Timing method
      * @param PrinterInterface $printer Display method
      */
