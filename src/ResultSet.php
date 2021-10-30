@@ -12,7 +12,7 @@ use function count;
  *
  * @psalm-immutable
  */
-Class Result
+Class ResultSet
 {
 
     /**
