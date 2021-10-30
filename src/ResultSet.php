@@ -4,6 +4,7 @@ namespace Clvarley\Bench;
 
 use Clvarley\Bench\TestItem;
 use Clvarley\Bench\Duration;
+use Countable;
 
 use function count;
 
@@ -12,7 +13,7 @@ use function count;
  *
  * @psalm-immutable
  */
-Class ResultSet
+Class ResultSet Implements Countable
 {
 
     /**
@@ -43,6 +44,24 @@ Class ResultSet
     public function getTest() : TestItem
     {
         return $this->test;
+    }
+
+    /**
+     * Returns all results for this test
+     *
+     * @return ResultSet[]
+     */
+    public function getResults() : array
+    {
+        return $this->results;
+    }
+
+    /**
+     * Returns the number of results
+     */
+    public function count() : int
+    {
+        return count( $this->results );
     }
 
     /**
