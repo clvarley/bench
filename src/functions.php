@@ -18,12 +18,10 @@ use Clvarley\Bench\Printer\SimpleConsole;
  */
 function bench( string $name, callable $test, int $iterations = 1 ) : void
 {
-    $test = new TestItem( $name, $test );
     $timer = new Microtime();
+    $console = new SimpleConsole();
 
-    $results = (new Benchmark( $test, $timer ))
-        ->iterations( $iterations )
-        ->run();
-
-    (new SimpleConsole())->display( $results );
+    $suite = new Suite( $timer, $console );
+    $suite->add( $name, $test )->iterations( $iterations );
+    $suite->run();
 }

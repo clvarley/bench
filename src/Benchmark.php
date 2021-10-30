@@ -23,6 +23,7 @@ Class Benchmark
     private $timer;
 
     /**
+     * @psalm-var positive-int
      * @var int $iterations
      */
     private $_iterations = 1;
