@@ -11,6 +11,7 @@ use Clvarley\Bench\Printer\SimpleConsole;
  * Tests the given function and outputs benchmark information
  *
  * @psalm-param non-empty-string $name
+ * @psalm-param positive-int $iterations
  * @param string $name    Test name
  * @param callable $test  Test function
  * @param int $iterations Number of iterations
