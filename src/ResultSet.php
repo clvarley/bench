@@ -49,7 +49,7 @@ Class ResultSet Implements Countable
     /**
      * Returns all results for this test
      *
-     * @return ResultSet[]
+     * @return Duration[]
      */
     public function getResults() : array
     {
