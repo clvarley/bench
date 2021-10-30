@@ -4,7 +4,7 @@ namespace Clvarley\Bench;
 
 use Clvarley\Bench\TestItem;
 use Clvarley\Bench\Timer\Microtime;
-use Clvarley\Bench\ResultSet;
+use Clvarley\Bench\Benchmark;
 use Clvarley\Bench\Printer\SimpleConsole;
 
 /**
@@ -17,18 +17,12 @@ use Clvarley\Bench\Printer\SimpleConsole;
  */
 function bench( string $name, callable $test, int $iterations = 1 ) : void
 {
-    $timer = new Microtime();
-    $results = [];
-
-    for ( $i = 0; $i < $iterations; $i++ ) {
-        $timer->start();
-        $test();
-        $timer->stop();
-        $results[] = $timer->result();
-    }
-
     $test = new TestItem( $name, $test );
-    $results = new ResultSet( $test, $results );
+    $timer = new Microtime();
+
+    $results = (new Benchmark( $test, $timer ))
+        ->iterations( $iterations )
+        ->run();
 
     (new SimpleConsole())->display( $results );
 }
