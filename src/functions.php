@@ -17,9 +17,7 @@ use Clvarley\Bench\Benchmark;
  */
 function bench( string $name, callable $test, int $iterations = 1 ) : void
 {
-    $suite = tests();
-    $suite->add( $name, $test )->iterations( $iterations );
-    $suite->run();
+    tests()->add( $name, $test, $iterations )->run();
 }
 
 /**

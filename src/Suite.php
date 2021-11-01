@@ -45,16 +45,21 @@ Class Suite
      * Add a new function to the test suite
      *
      * @psalm-param non-empty-string $name
-     * @param string $name   Test name
-     * @param callable $test Test function
-     * @return Benchmark     Benchmark object
+     * @psalm-param positive-int $iterations
+     * @param string $name    Test name
+     * @param callable $test  Test function
+     * @param int $iterations Number of iterations
+     * @return self           Chainable interface
      */
-    public function add( string $name, callable $test ) : Benchmark
+    public function add( string $name, callable $test, int $iterations = 1 ) : self
     {
         $test = new TestItem( $name, $test );
         $benchmark = new Benchmark( $test, $this->timer );
+        $benchmark->iterations( $iterations );
 
-        return $this->tests[] = $benchmark;
+        $this->tests[] = $benchmark;
+
+        return $this;
     }
 
     /**
