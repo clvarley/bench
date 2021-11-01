@@ -19,17 +19,12 @@ Class Microtime Implements TimerInterface
      */
     private $t_start;
 
-    /**
-     * @var float|null $t_end
-     */
-    private $t_end;
-
     public function start() : void
     {
         $this->t_start = microtime( true );
     }
 
-    public function stop() : void
+    public function stop() : Duration
     {
         $end = microtime( true );
 
@@ -39,18 +34,7 @@ Class Microtime Implements TimerInterface
             );
         }
 
-        $this->t_end = $end;
-    }
-
-    public function result() : Duration
-    {
-        if ( !isset( $this->t_end, $this->t_start ) ) {
-            throw new LogicException(
-                'Cannot call ::result() on a timer without first stopping it'
-            );
-        }
-
-        $value = $this->t_end - $this->t_start;
+        $value = $end - $this->t_start;
 
         return new Duration( $value, Duration::PRECISION_SECONDS );
     }

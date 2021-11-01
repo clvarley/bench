@@ -64,8 +64,7 @@ Class Benchmark
         for ( $i = 0; $i < $this->_iterations; $i++ ) {
             $this->timer->start();
                 $callback();
-            $this->timer->stop();
-            $results[] = $this->timer->result();
+            $results[] = $this->timer->stop();
         }
 
         return new ResultSet( $this->test, $results );

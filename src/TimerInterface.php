@@ -17,18 +17,11 @@ Interface TimerInterface
     public function start() : void;
 
     /**
-     * Stops the timer
+     * Stops the timer and return duration
      *
      * @throws LogicException Thrown if the timer hasn't started
+     * @return Duration Timer duration
      */
-    public function stop() : void;
-
-    /**
-     * Return the result of this timer
-     *
-     * @throws LogicException Thrown if the timer hasn't stopped
-     * @return Duration       Timing information
-     */
-    public function result() : Duration;
+    public function stop() : Duration;
 
 }
