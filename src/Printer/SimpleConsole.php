@@ -33,28 +33,20 @@ Class SimpleConsole Implements PrinterInterface
         $format = "- %0{$digits}d took: %07f ms";
 
         foreach ( $results->getResults() as $i => $result ) {
-            $this->printf( $format, $i, $result->getMilliseconds() );
+            $this->print( $format, $i, $result->getMilliseconds() );
         }
 
         $this->print( '---' );
 
         // Totals
-        $this->printf( 'Total time:   %07f ms',
+        $this->print( 'Total time:   %07f ms',
             $results->totalDuration()->getMilliseconds()
         );
-        $this->printf( 'Average time: %07f ms',
+        $this->print( 'Average time: %07f ms',
             $results->averageDuration()->getMilliseconds()
         );
 
         return;
-    }
-
-    /**
-     * Prints a line to the console
-     */
-    private function print( string $message ) : void
-    {
-        echo $message, PHP_EOL;
     }
 
     /**
@@ -63,7 +55,7 @@ Class SimpleConsole Implements PrinterInterface
      * @psalm-param non-empty-string $format
      * @psalm-param list<scalar> $args
      */
-    private function printf( string $format, ...$args ) : void
+    private function print( string $format, ...$args ) : void
     {
         echo vsprintf( $format, $args ), PHP_EOL;
     }
