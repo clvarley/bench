@@ -2,7 +2,7 @@
 
 namespace Clvarley\Bench;
 
-use Clvarley\Bench\TestItem;
+use Clvarley\Bench\Unit;
 use Clvarley\Bench\TimerInterface;
 use Clvarley\Bench\ResultSet;
 
@@ -13,7 +13,7 @@ Class Benchmark
 {
 
     /**
-     * @var TestItem $test
+     * @var Unit $test
      */
     private $test;
 
@@ -32,10 +32,10 @@ Class Benchmark
     /**
      * Construct a new benchmark for the given test
      *
-     * @param TestItem $test        Test function
+     * @param Unit $test            Test function
      * @param TimerInterface $timer Timing method
      */
-    public function __construct( TestItem $test, TimerInterface $timer )
+    public function __construct( Unit $test, TimerInterface $timer )
     {
         $this->test = $test;
         $this->timer = $timer;

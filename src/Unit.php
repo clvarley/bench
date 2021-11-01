@@ -7,7 +7,7 @@ namespace Clvarley\Bench;
  *
  * @psalm-immutable
  */
-Class TestItem
+Class Unit
 {
 
     /**

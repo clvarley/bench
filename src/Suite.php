@@ -5,7 +5,7 @@ namespace Clvarley\Bench;
 use Clvarley\Bench\TimerInterface;
 use Clvarley\Bench\PrinterInterface;
 use Clvarley\Bench\Benchmark;
-use Clvarley\Bench\TestItem;
+use Clvarley\Bench\Unit;
 
 /**
  * Represents a suite of benchmark tests
@@ -59,7 +59,7 @@ Class Suite
      */
     public function add( string $name, callable $test, int $iterations = 1 ) : self
     {
-        $test = new TestItem( $name, $test );
+        $test = new Unit( $name, $test );
         $benchmark = new Benchmark( $test, $this->timer );
         $benchmark->iterations( $iterations );
 

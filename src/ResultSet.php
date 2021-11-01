@@ -2,7 +2,7 @@
 
 namespace Clvarley\Bench;
 
-use Clvarley\Bench\TestItem;
+use Clvarley\Bench\Unit;
 use Clvarley\Bench\Duration;
 use Countable;
 
@@ -17,7 +17,7 @@ Class ResultSet Implements Countable
 {
 
     /**
-     * @var TestItem $test
+     * @var Unit $test
      */
     private $test;
 
@@ -29,10 +29,10 @@ Class ResultSet Implements Countable
     /**
      * Create a new result set for the given test
      *
-     * @param TestItem $test      Test information
+     * @param Unit $test          Test information
      * @param Duration[] $results Test durations
      */
-    public function __construct( TestItem $test, array $results )
+    public function __construct( Unit $test, array $results )
     {
         $this->test = $test;
         $this->results = $results;
@@ -41,7 +41,7 @@ Class ResultSet Implements Countable
     /**
      * Returns the test for which these results are relevant
      */
-    public function getTest() : TestItem
+    public function getTest() : Unit
     {
         return $this->test;
     }
