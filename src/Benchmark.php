@@ -24,6 +24,7 @@ Class Benchmark
 
     /**
      * @psalm-var positive-int
+     *
      * @var int $iterations
      */
     private $_iterations = 1;
@@ -44,6 +45,7 @@ Class Benchmark
      * Sets the number of iterations for this test
      *
      * @psalm-param positive-int $iterations
+     *
      * @return self Chainable interface
      */
     public function iterations( int $iterations ) : self

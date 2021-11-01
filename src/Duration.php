@@ -20,6 +20,7 @@ Class Duration
 
     /**
      * @psalm-var self::PRECISION_* $precision
+     *
      * @var int $precision
      */
     private $precision;
@@ -28,6 +29,7 @@ Class Duration
      * Create a new duration value using
      *
      * @psalm-param self::PRECISION_* $precision
+     *
      * @param float $value   Duration length
      * @param int $precision Value precision
      */
@@ -85,6 +87,7 @@ Class Duration
      * Get the multiplier required to convert to a given precision
      *
      * @psalm-param self::PRECISION_* $target
+     *
      * @param int $target Target precision
      * @return int|float
      */
@@ -100,6 +103,7 @@ Class Duration
      * will be returned.
      *
      * @psalm-pure
+     *
      * @return self Most precise
      */
     public static function mostPrecise( self $value1, self $value2 ) : self
@@ -116,6 +120,7 @@ Class Duration
      * inaccuracies.
      *
      * @psalm-pure
+     *
      * @return self Resultant duration
      */
     public static function add( self $value1, self $value2 ) : self

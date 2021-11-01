@@ -14,6 +14,7 @@ Class TestItem
      * Display friendly name for this test
      *
      * @psalm-var non-empty-string $name
+     *
      * @var string $name
      */
     private $name;
@@ -29,6 +30,7 @@ Class TestItem
      * Create a new named benchmark test
      *
      * @psalm-param non-empty-string $name
+     *
      * @param string $name   Test name
      * @param callable $test User function
      */

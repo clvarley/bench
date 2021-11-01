@@ -14,11 +14,15 @@ Class Suite
 {
 
     /**
+     * @readonly
+     *
      * @var TimerInterface $timer
      */
     private $timer;
 
     /**
+     * @readonly
+     *
      * @var PrinterInterface $printer
      */
     private $printer;
@@ -32,6 +36,7 @@ Class Suite
      * Create a test suite with your preferred timing and display methods
      *
      * @psalm-mutation-free
+     *
      * @param TimerInterface $timer     Timing method
      * @param PrinterInterface $printer Display method
      */
@@ -46,6 +51,7 @@ Class Suite
      *
      * @psalm-param non-empty-string $name
      * @psalm-param positive-int $iterations
+     *
      * @param string $name    Test name
      * @param callable $test  Test function
      * @param int $iterations Number of iterations
