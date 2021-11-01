@@ -24,19 +24,11 @@ Class MicrotimeTest Extends TestCase
         $this->timer->stop();
     }
 
-    public function testThrowsWhenNotFinished() : void
-    {
-        self::expectException( LogicException::class );
-
-        $this->timer->result();
-    }
-
     public function testCalculatesDifferenceBetweenTimes() : void
     {
         $this->timer->start();
-        $this->timer->stop();
 
-        $duration = $this->timer->result();
+        $duration = $this->timer->stop();
 
         self::assertInstanceOf( Duration::class, $duration );
         self::assertSame(

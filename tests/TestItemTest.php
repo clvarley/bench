@@ -3,16 +3,16 @@
 namespace Clvarley\Bench\Tests;
 
 use PHPUnit\Framework\TestCase;
-use Clvarley\Bench\TestItem;
+use Clvarley\Bench\Unit;
 
-Class TestItemTest Extends TestCase
+Class UnitTest Extends TestCase
 {
-    /** @var TestItem $item */
+    /** @var Unit $item */
     private $item;
 
     protected function setUp() : void
     {
-        $this->item = new TestItem( 'example test', 'is_string' );
+        $this->item = new Unit( 'example test', 'is_string' );
     }
 
     public function testCanReturnTestName() : void

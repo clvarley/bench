@@ -82,7 +82,7 @@ Class DurationTest Extends TestCase
         self::assertSame( 0.0875, $result->getSeconds() );
     }
 
-    public function testCanTellWhichDurationIsMosePrecise() : void
+    public function testCanTellWhichDurationIsMorePrecise() : void
     {
         $val1 = new Duration( 0, Duration::PRECISION_SECONDS );
         $val2 = new Duration( 0, Duration::PRECISION_MICROSECONDS );
