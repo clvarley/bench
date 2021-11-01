@@ -63,6 +63,9 @@ Class Benchmark
         $results = [];
         $callback = $this->test->getTest();
 
+        // Run once before tests
+        $callback();
+
         for ( $i = 0; $i < $this->_iterations; $i++ ) {
             $this->timer->start();
                 $callback();

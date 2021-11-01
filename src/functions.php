@@ -4,7 +4,7 @@ namespace Clvarley\Bench;
 
 use Clvarley\Bench\Timer\Microtime;
 use Clvarley\Bench\Printer\SimpleConsole;
-use Clvarley\Bench\Benchmark;
+use Clvarley\Bench\Suite;
 
 /**
  * Tests the given function and outputs benchmark information
