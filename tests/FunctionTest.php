@@ -19,16 +19,16 @@ Class FunctionTest Extends TestCase
         REGEX;
 
         $middle = <<<REGEX
-        (?\- \d+ took: [0-9\.]+ ms){{$iterations}}
+        (?:- \d+ took: [0-9\.]+ ms\\n){{$iterations}}
         REGEX;
 
         $end = <<<REGEX
+        ---
         Total time:\s+[0-9\.]+ ms
         Average time:\s+[0-9\.]+ ms
         REGEX;
 
-        var_dump( $start, $middle, $end );
-        die;
+        \file_put_contents( __DIR__ . '/test.txt', "/^$start\n$middle\n$end/i" );
 
         return "/^$start\n$middle\n$end/";
     }
