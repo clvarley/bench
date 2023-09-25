@@ -63,7 +63,7 @@ Class Benchmark
         $results = [];
         $callback = $this->test->getTest();
 
-        // Run once before tests
+        // Run once before tests (to force opcache)
         $callback();
 
         for ( $i = 0; $i < $this->_iterations; $i++ ) {
